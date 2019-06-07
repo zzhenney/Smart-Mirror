@@ -1,0 +1,41 @@
+{
+  "name": "smartmirrordash",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "concurrently \"NODE_ENV=development DEBUG=smartmirrordash:* nodemon ./bin/www\" \"npm run watchify\"",
+    "db:create:migration": "sequelize migration:generate --name ",
+    "db:migrate": "sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo",
+    "scrape:routes": "python tools/bartRouteScrape.py ",
+    "watchify": "watchify frontend/bus.js frontend/bart.js frontend/dateTime.js frontend/weather.js -o public/javascripts/bundle.js -v"
+  },
+  "dependencies": {
+    "acorn": "^6.1.1",
+    "browserify": "^16.2.3",
+    "concurrently": "^4.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-pg-simple": "^5.0.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.16.0",
+    "express-session": "^1.16.1",
+    "fetch": "^1.1.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-fetch": "^2.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg-promise": "^8.5.5",
+    "pug": "^2.0.3",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "watchify": "^3.11.1",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

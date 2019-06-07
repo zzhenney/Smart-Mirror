@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  div.container-fluid
+      div.row.col-md-4.mb-5
+        h3 Mirror Settings
+      
+      form(method='POST' action='/createMirror')
+        div.form-group
+          h5.mb-3 Transit
+          
+          div.row.mb-3.form-inline(id='bart')
+            div.col-md-1
+              div.form-check.m-1
+                
+                input.form-check-input(type='checkbox' id='bartCheck')
+                label.form-check-label(for='bartCheck' id='bartLabel') Bart
+
+
+            div.col-md-4(id='bart-station-div')
+              div.btn-group(name='bartStart' disabled='true')
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown') Select Starting Station
+                ul.dropdown-menu.scrollable-menu(id='select-start-station' role='menu')
+
+            
+            div.col-md-4
+              select.form-control.form-control-sm(id='select-train' name='bartEnd' disabled='true')
+                option Select Line
+
+          div.row.mb-5(id='muni')
+            div.col-md-1.form-inline
+              div.form-check.m-1
+                input.form-check-input(type='checkbox' value='' id='muniCheck')
+                
+                label.form-check-label(for='muniCheck') Muni
+
+            div.col-md-4
+              dropdown.menu(id='select-line')
+                dropdown-item Select Bus Line
+            
+            div.col-md-4
+              select.form-control.form-control-sm(id='select-stop')
+                option Select Stop
+
+          h5.mb-3 Time/Weather
+          div.row.mb-5
+            div.col-md-3
+              input.form-control.m-1(type='text' id='zip-code' placeholder='Enter Zip Code')
+
+        button.btn.btn-primary.btn-lg.btn-success(type='submit') Create Mirror
+
+
