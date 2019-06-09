@@ -85,7 +85,7 @@ const updateBart = () => {
 
 
 
-if(window.location.href.indexOf('mirror') > -1) {
+if(window.location.href.indexOf('/mirror') > -1) {
 	getBartTimes();
 	updateBart();
 	

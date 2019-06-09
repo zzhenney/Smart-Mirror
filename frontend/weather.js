@@ -18,7 +18,7 @@ const updateWeather = () => {
 	setInterval(function(){renderWeather()}, 3600000);
 }
 
-if(window.location.href.indexOf('mirror') > -1) {
+if(window.location.href.indexOf('/mirror') > -1) {
 	renderWeather();
 	updateWeather();
 	

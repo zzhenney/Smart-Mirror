@@ -41,7 +41,7 @@ const setDateTime = () => {
 }
 
 
-if(window.location.href.indexOf('mirror') > -1) {
+if(window.location.href.indexOf('/mirror') > -1) {
 	setDateTime();
 	updateDateTime();	
 }

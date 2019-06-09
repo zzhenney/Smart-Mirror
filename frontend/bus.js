@@ -118,7 +118,7 @@ const updateMuni = () => {
     setInterval(function(){getMuniTimes()}, 30000);
 }
 
-if(window.location.href.indexOf('mirror') > -1) {
+if(window.location.href.indexOf('/mirror') > -1) {
     getMuniTimes();
     updateMuni();
     
