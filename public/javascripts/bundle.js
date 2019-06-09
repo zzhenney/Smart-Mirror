@@ -165,7 +165,7 @@ const updateBart = () => {
 
 
 
-if(window.location.href.indexOf('mirror') > -1) {
+if(window.location.href.indexOf('/mirror') > -1) {
 	getBartTimes();
 	updateBart();
 	
@@ -299,7 +299,9 @@ const updateMuni = () => {
     setInterval(function(){getMuniTimes()}, 30000);
 }
 
-if(window.location.href.indexOf('mirror') > -1) {
+console.log(`href location: mirror - ${window.location.href.indexOf('/mirror')}`)
+
+if(window.location.href.indexOf('/mirror') > -1) {
     getMuniTimes();
     updateMuni();
     
@@ -353,7 +355,7 @@ const setDateTime = () => {
 }
 
 
-if(window.location.href.indexOf('mirror') > -1) {
+if(window.location.href.indexOf('/mirror') > -1) {
 	setDateTime();
 	updateDateTime();	
 }
@@ -381,7 +383,8 @@ const updateWeather = () => {
 	setInterval(function(){renderWeather()}, 3600000);
 }
 
-if(window.location.href.indexOf('mirror') > -1) {
+console.log(`href location: mirror - ${window.location.href.indexOf('/mirror')}`)
+if(window.location.href.indexOf('/mirror') > -1) {
 	renderWeather();
 	updateWeather();
 	

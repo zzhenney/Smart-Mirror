@@ -118,6 +118,8 @@ const updateMuni = () => {
     setInterval(function(){getMuniTimes()}, 30000);
 }
 
+console.log(`href location: mirror - ${window.location.href.indexOf('/mirror')}`)
+
 if(window.location.href.indexOf('/mirror') > -1) {
     getMuniTimes();
     updateMuni();
