@@ -40,7 +40,7 @@ router.get('/times/:userId', function(request, response, next) {
 			//const destination = request.params.destination;
 
 			//MOVE THIS TO lib/bart
-			let url = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${startStation}&key=MW9S-E7SL-26DU-VV8V&json=y`;
+			let url = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${startStation}&key=${process.env.BART_API_KEY}&json=y`;
 			//console.log('fetch url: ' + url);
 			fetchRequest.frequest(url)
 				.then(data => {
