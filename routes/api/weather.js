@@ -10,14 +10,19 @@ router.get('/:userId', function(request, response, next) {
 	User.getUserData(userId)
 		.then(data => {
 			console.log(`user data: ${data.zip_code}`)
-			Weather.getWeather(data.zip_code)
-				.then(data => {
-					console.log(`route weather data: ${data[1].conditions}`)
-					response.send(data);
-				})
-				.catch(error => {
-					console.log('routes/api/weather.js: ' + error);
-				})
+			if(data.zip_code != 0){
+				Weather.getWeather(data.zip_code)
+					.then(data => {
+						console.log(`route weather data: ${data[1].conditions}`)
+						response.send(data);
+					})
+					.catch(error => {
+						console.log('routes/api/weather.js: ' + error);
+					})
+			}
+			else{
+				response.send(0)
+			}
 		})
 		.catch(error => {
 			console.log('routes/api/weather.js: ' + error);

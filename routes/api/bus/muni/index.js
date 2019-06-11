@@ -80,6 +80,10 @@ router.get('/times/:userId', function(request, response, next) {
 					console.log('routes/api/bus/muni.js: /times/:userId' + error);
 				})
 		})
+		.catch(err => {
+			console.log("routes/api/bus/muni/index 84: " + err)
+
+		})
 })
 
 module.exports = router;

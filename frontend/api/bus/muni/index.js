@@ -34,6 +34,7 @@ const getDepartTimes = (userId) => {
 			//console.log(response)
 			return response
 		})
+		
 }
 
 module.exports = { getStops, getLines, getDepartTimes, getDirections };

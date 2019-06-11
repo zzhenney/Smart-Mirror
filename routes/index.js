@@ -15,12 +15,16 @@ router.get('/', function(req, res, next) {
 
 router.post('/createMirror', function(req, res, next){
 	if(req.isAuthenticated()){
+		console.log("CREATING MIRRROR -------------------->>>>>>>>>>>><<<<<<<<---------------------")
 		const user = req.session.passport.user;
-		const bartStart = req.body.bartStart.toUpperCase();
+		console.log(`user type of: ${typeof user}`)
+		console.log(`User: ${user}`);
+		console.log(`UserID ${req.session.passport.user_id}`)
+		const bartStart = (req.body.bartStart != "undefined" ? req.body.bartStart.toUpperCase() : "none");
 		const bartEnd = req.body.bartEnd;
 		const muniLine = req.body.muniLine
 		const muniStop = req.body.muniStop
-		const zipCode = req.body.zipCode
+		const zipCode = (req.body.zipCode.isInteger ? req.body.zipcode : 0)
 
 		//console.log('user: ' + user);
 		//console.log("req bstart: " +req.body.bartStart.toUpperCase());
@@ -28,11 +32,12 @@ router.post('/createMirror', function(req, res, next){
 		
 		User.saveUserData(bartStart, bartEnd, muniLine, muniStop, zipCode, user)
 			.then(userId => {
-				//console.log(userId);
+				console.log("user ID: " + userId);
 				res.redirect(`/mirror/${userId}`)
 			})
 			.catch(err => {
-				console.log("Route Error: " + err);
+				console.log("Route Error User.saveUserData: " + err);
+				res.redirect('/');
 			})
 		
 	}
