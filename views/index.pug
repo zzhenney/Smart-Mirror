@@ -2,8 +2,14 @@ extends layout
 
 block content
   div.container-fluid
-      div.row.col-md-4.mb-5
-        h3 Mirror Settings
+      div.row.mb-5
+        div.col-lg
+          h3 Mirror Settings
+        div.col-lg
+        div.col-lg.text-right
+          a(id='current-mirror' href='/mirror/' + userid).btn.btn-outline-warning.mx-2 Current Mirror
+          a(href='/logout').btn.btn-outline-danger Logout
+        
       
       form(method='POST' action='/createMirror')
         div.form-group

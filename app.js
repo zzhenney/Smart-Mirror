@@ -24,6 +24,7 @@ const weatherRouter = require('./routes/api/weather');
 //auth routes
 const registrationRouter = require('./routes/registration');
 const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
 
 var app = express();
 
@@ -49,6 +50,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 app.use('/mirror', mirrorRouter);
 app.use('/api/bart', bartRouter);
 app.use('/api/bus/muni', muniRouter);

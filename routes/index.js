@@ -5,7 +5,7 @@ const User = require('../db/users');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.isAuthenticated()){
-    res.render('index', { title: 'Dash Gen' });
+    res.render('index', {userid: `${req.session.passport.user}` });
   }
   else{
   	res.redirect('/login');
@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/createMirror', function(req, res, next){
 	if(req.isAuthenticated()){
-		console.log("CREATING MIRRROR -------------------->>>>>>>>>>>><<<<<<<<---------------------")
+		console.log("\n\nCREATING MIRRROR -------------------->>>>>>>>>>>><<<<<<<<---------------------\n\n")
 		const user = req.session.passport.user;
 		console.log(`user type of: ${typeof user}`)
 		console.log(`User: ${user}`);
@@ -25,7 +25,8 @@ router.post('/createMirror', function(req, res, next){
 		const bartEnd = req.body.bartEnd;
 		const muniLine = req.body.muniLine
 		const muniStop = req.body.muniStop
-		const zipCode = (req.body.zipCode.isInteger ? req.body.zipcode : 0)
+		const zipCode = (req.body.zipCode == '' ? 0 : req.body.zipCode)
+
 
 		//console.log('user: ' + user);
 		//console.log("req bstart: " +req.body.bartStart.toUpperCase());
