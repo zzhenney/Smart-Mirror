@@ -20,7 +20,7 @@ router.post('/createMirror', function(req, res, next){
 		console.log(`user type of: ${typeof user}`)
 		console.log(`User: ${user}`);
 		console.log(`UserID ${req.session.passport.user_id}`)
-		const bartStart = (req.body.bartStart != "undefined" ? req.body.bartStart.toUpperCase() : "none");
+		const bartStart = (req.body.bartStart != "" ? req.body.bartStart.toUpperCase() : "none");
 		const bartEnd = req.body.bartEnd;
 		const muniLine = req.body.muniLine
 		const muniStop = req.body.muniStop
