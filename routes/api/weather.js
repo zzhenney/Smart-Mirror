@@ -21,7 +21,11 @@ router.get('/:userId', function(request, response, next) {
 					})
 			}
 			else{
+<<<<<<< HEAD
 				response.send(null)
+=======
+				response.send(0)
+>>>>>>> 9d37f051ed203a886f2d3fef24899161e780da1a
 			}
 		})
 		.catch(error => {
