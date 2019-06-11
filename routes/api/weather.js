@@ -21,7 +21,7 @@ router.get('/:userId', function(request, response, next) {
 					})
 			}
 			else{
-				response.send(0)
+				response.send(null)
 			}
 		})
 		.catch(error => {

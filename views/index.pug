@@ -9,19 +9,19 @@ block content
         div.form-group
           h5.mb-3 Transit
           
-          div.row.mb-3.form-inline(id='bart')
-            div.col-md-1
+          div.row.mb-3(id='bart')
+            div.col-md-1.form-inline
               div.form-check.m-1
                 
                 input.form-check-input(type='checkbox' id='bartCheck')
                 label.form-check-label(for='bartCheck' id='bartLabel') Bart
 
 
-            div.col-md-4(id='bart-station-div')
+            div.col-md-3(id='bart-station-div')
               select.form-control.form-control-sm(id='select-start-station' value='null' name='bartStart' disabled='true')
                 option Select Starting Station
             
-            div.col-md-4
+            div.col-md-3
               select.form-control.form-control-sm(id='select-train' value='null' name='bartEnd' disabled='true')
                 option Select Line
 
@@ -32,15 +32,15 @@ block content
                 
                 label.form-check-label(for='muniCheck') Muni
 
-            div.col-md-4
+            div.col-md-3
               select.form-control.form-control-sm(id='select-line' value='null' name='muniLine' disabled='true')
                 option Select Bus Line
 
-            div.col-md-4
+            div.col-md-3
               select.form-control.form-control-sm(id='select-direction' value='null' name='muniDirection' disabled='true')
                 option Select Direction
             
-            div.col-md-4
+            div.col-md-3
               select.form-control.form-control-sm(id='select-stop' value='null' name='muniStop' disabled='true')
                 option Select Stop
 
