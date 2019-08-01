@@ -8,6 +8,8 @@ Platform is intended for DIYers who do not have programming skills.
 
 Upcoming Features:
 
-Calendar 
+Calendar
+
 Traffic Alerts / Times
+
 AC Transit
