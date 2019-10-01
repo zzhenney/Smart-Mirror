@@ -14,6 +14,7 @@ const flash = require('connect-flash');
 const passport = require('./auth/passport');
 const session = require('./auth/session');
 
+const aboutRouter = require('./routes/about');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const bartRouter = require('./routes/api/bart');
@@ -49,6 +50,7 @@ app.use(passport.session());
 
 //page routes
 app.use('/', indexRouter);
+app.use('/about', aboutRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/mirror', mirrorRouter);
