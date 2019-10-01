@@ -20,6 +20,7 @@ const bartRouter = require('./routes/api/bart');
 const mirrorRouter = require('./routes/mirror');
 const muniRouter = require('./routes/api/bus/muni');
 const weatherRouter = require('./routes/api/weather');
+const settingsRouter = require('./routes/settings');
 
 //auth routes
 const registrationRouter = require('./routes/registration');
@@ -46,12 +47,16 @@ app.use(session);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//page routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/mirror', mirrorRouter);
+app.use('/users', usersRouter);
+app.use('/registration', registrationRouter);
+app.use('/settings', settingsRouter)
+
+//api routes
 app.use('/api/bart', bartRouter);
 app.use('/api/bus/muni', muniRouter);
 app.use('/api/weather', weatherRouter);

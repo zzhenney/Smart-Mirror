@@ -1,0 +1,60 @@
+extends layout
+
+block content
+  div.container-fluid
+      div.row.mb-5
+        div.col-lg
+          h3 Mirror Settings
+        div.col-lg
+        div.col-lg.text-right
+          a(id='current-mirror' href='/mirror/' + userid).btn.btn-outline-warning.mx-2 Current Mirror
+          a(href='/logout').btn.btn-outline-danger Logout
+        
+      
+      form(method='POST' action='/createMirror')
+        div.form-group
+          h5.mb-3 Transit
+          
+          div.row.mb-3(id='bart')
+            div.col-md-1.form-inline
+              div.form-check.m-1
+                
+                input.form-check-input(type='checkbox' id='bartCheck')
+                label.form-check-label(for='bartCheck' id='bartLabel') Bart
+
+
+            div.col-md-3(id='bart-station-div')
+              select.form-control.form-control-sm(id='select-start-station' value='null' name='bartStart' disabled='true')
+                option Select Starting Station
+            
+            div.col-md-3
+              select.form-control.form-control-sm(id='select-train' value='null' name='bartEnd' disabled='true')
+                option Select Line
+
+          div.row.mb-5(id='muni')
+            div.col-md-1.form-inline
+              div.form-check.m-1
+                input.form-check-input(type='checkbox' value='' id='muniCheck')
+                
+                label.form-check-label(for='muniCheck') Muni
+
+            div.col-md-3
+              select.form-control.form-control-sm(id='select-line' value='null' name='muniLine' disabled='true')
+                option Select Bus Line
+
+            div.col-md-3
+              select.form-control.form-control-sm(id='select-direction' value='null' name='muniDirection' disabled='true')
+                option Select Direction
+            
+            div.col-md-3
+              select.form-control.form-control-sm(id='select-stop' value='null' name='muniStop' disabled='true')
+                option Select Stop
+
+          h5.mb-3 Weather
+          div.row.mb-5
+            div.col-md-3
+              input.form-control.m-1(name='zipCode' type='text' id='zip-code' placeholder='Enter Zip Code')
+
+        button.btn.btn-primary.btn-lg.btn-success(type='submit') Create Mirror
+
+
