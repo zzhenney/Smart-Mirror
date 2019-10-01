@@ -1,62 +1,36 @@
 extends layout
 
 block content
-  div.container-fluid
-      div.row.mb-5
-        div.col-lg
-          h3 Mirror Settings
-        div.col-lg
-        div.col-lg.text-right
-          a(id='current-mirror' href='/mirror/' + userid).btn.btn-outline-warning.mx-2 Current Mirror
-          a(href='/logout').btn.btn-outline-danger Logout
-        
+  div.container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
+      header.text-center
+        div.container.d-flex.justify-content-center
+          h3 Smart Mirror Generator
+        div.container.d-flex.justify-content-center
+          nav.nav
+            a.nav-link( href = '/about') About
+            a.nav-link( href = '/login') Sign In
+      br
       
-      form(method='POST' action='/createMirror')
-        div.form-group
-          h5.mb-3 Transit
-          
-          div.row.mb-3(id='bart')
-            div.col-md-1.form-inline
-              div.form-check.m-1
-                
-                input.form-check-input(type='checkbox' id='bartCheck')
-                label.form-check-label(for='bartCheck' id='bartLabel') Bart
+      main.text-center
+        div.container      
+          div.d-flex.justify-content-center
+            div#mockupSlides.carousel( style='width: 500px')
+              ol.carousel-indicators
+                li.active( data-target='mockupSlides' data-slide-to='0')
+                li( data-target='mockupSlides' data-slide-to='1')
+              div.carousel-inner
+                div.carousel-item.active
+                  img.image.d-block.w-100(src='images/bathroom.png' alt='mock up image')
+                div.carousel-item
+                  img.image.d-block.w-100(src='images/mirror.png' alt='mock up image')
+              a.carousel-control-prev(href='#mockupSlides' data-slide='prev')
+                span.carousel-control-prev-icon
+              a.carousel-control-next(href='#mockupSlides' data-slide='next')
+                span.carousel-control-next-icon
+        br
+        br
+        div.container
+          a.btn.btn-success(href='/registration') Get Started
 
-
-
-            div.col-md-3(id='bart-station-div')
-              select.form-control.form-control-sm(id='select-start-station' value='null' name='bartStart' disabled='true')
-                option Select Starting Station
-            
-            div.col-md-3
-              select.form-control.form-control-sm(id='select-train' value='null' name='bartEnd' disabled='true')
-                option Select Line
-
-          div.row.mb-5(id='muni')
-            div.col-md-1.form-inline
-              div.form-check.m-1
-                input.form-check-input(type='checkbox' value='' id='muniCheck')
-                
-                label.form-check-label(for='muniCheck') Muni
-
-
-            div.col-md-3
-              select.form-control.form-control-sm(id='select-line' value='null' name='muniLine' disabled='true')
-                option Select Bus Line
-
-            div.col-md-3
-              select.form-control.form-control-sm(id='select-direction' value='null' name='muniDirection' disabled='true')
-                option Select Direction
-            
-            div.col-md-3
-              select.form-control.form-control-sm(id='select-stop' value='null' name='muniStop' disabled='true')
-                option Select Stop
-
-          h5.mb-3 Weather
-          div.row.mb-5
-            div.col-md-3
-              input.form-control.m-1(name='zipCode' type='text' id='zip-code' placeholder='Enter Zip Code')
-
-        button.btn.btn-primary.btn-lg.btn-success(type='submit') Create Mirror
 
 

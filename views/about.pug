@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  div.container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
+      header.text-center
+        div.container.d-flex.justify-content-center
+          h3 Smart Mirror Generator
+        div.container.d-flex.justify-content-center
+          nav.nav
+            a.nav-link( href = '/') Home
+            a.nav-link( href = '/login') Sign In
+      br
+
+      main.text-center
+        div.container      
+          div.d-flex.justify-content-center
+            div.text-left
+              h4 About
+              h5 The Smart Mirror Generator was made to help makers with no programming knowledge create a smart mirror. 
+                br
+                br
+                p Current mirror options include:
+                ul
+                  li Transit (Bart / SF MUNI Only)
+                  li Date
+                  li Time
+                  li Local Weather
+
+                p Next Release:
+                ul
+                  li Bus transit for East Bay Area, CA
+                  li Multiple layout options
+                  li Improved UI
+        br
+        br
+        div.container
+          a.btn.btn-success(href='/registration') Get Started

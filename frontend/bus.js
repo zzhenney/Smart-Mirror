@@ -118,6 +118,28 @@ const updateMuni = () => {
     setInterval(function(){getMuniTimes()}, 30000);
 }
 
+//move this to helper module. code repeated in bart
+const checkMuniOption = () => {
+    let checkbox = document.getElementById('muniCheck')
+    if(checkbox.checked == true){
+        populateLines()
+    }
+    else{
+        disableDropDowns(Array('select-line', 'select-direction', 'select-stop'))
+    }
+}
+
+const disableDropDowns = (elements) => {
+    elements.forEach(function(val, index) {
+        parentNode = document.getElementById(val)
+        options = parentNode.childNodes
+        clearDropDown(parentNode, options)
+        parentNode.disabled = true;
+    })
+}
+
+
+
 console.log(`href location: mirror - ${window.location.href.indexOf('/mirror')}`)
 
 if(window.location.href.indexOf('/mirror') > -1) {
@@ -126,7 +148,7 @@ if(window.location.href.indexOf('/mirror') > -1) {
     
 }
 else{
-    attachEventListener('muniCheck', 'click', populateLines);
+    attachEventListener('muniCheck', 'click', checkMuniOption);
     attachEventListener('select-line', 'change', populateDirections);
     attachEventListener('select-direction', 'change', populateStops)
 }

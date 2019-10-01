@@ -24,3 +24,7 @@ a {
 .bottomDiv {
 	margin-bottom: 50px;
 }
+
+.card-title {
+	color: black;
+}

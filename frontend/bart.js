@@ -83,15 +83,35 @@ const updateBart = () => {
 	setInterval(function(){getBartTimes()}, 30000);
 }
 
+const checkBartOption = () => {
+	let checkbox = document.getElementById('bartCheck')
+	if(checkbox.checked == true){
+		populateStations()
+	}
+	else{
+		disableDropDowns(Array('select-start-station', 'select-train'))
+	}
+}
+
+const disableDropDowns = (elements) => {
+	elements.forEach(function(val, index) {
+		parentNode = document.getElementById(val)
+		options = parentNode.childNodes
+		clearDropDown(parentNode, options)
+		parentNode.disabled = true;
+	})
+}
 
 
+//location = mirror dashboard
 if(window.location.href.indexOf('/mirror') > -1) {
 	getBartTimes();
 	updateBart();
 	
 }
+//location = settings page
 else{
-	attachEventListener('bartCheck', 'click', populateStations);
+	attachEventListener('bartCheck', 'click', checkBartOption);
 	attachEventListener('select-start-station', 'change', populateLines);
 }
 
