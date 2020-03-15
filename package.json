@@ -12,7 +12,7 @@
     "watchify": "watchify frontend/bus.js frontend/bart.js frontend/dateTime.js frontend/weather.js -o public/javascripts/bundle.js -v"
   },
   "dependencies": {
-    "acorn": "^6.1.1",
+    "acorn": "^6.4.1",
     "browserify": "^16.2.3",
     "concurrently": "^4.1.0",
     "connect-flash": "^0.1.1",
